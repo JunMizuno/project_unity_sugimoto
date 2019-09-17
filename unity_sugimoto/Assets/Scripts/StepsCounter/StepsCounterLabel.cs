@@ -33,7 +33,7 @@ public class StepsCounterLabel : MonoBehaviour
     private void InitializeStepsCounterLabel()
     {
         var label = this.GetComponent<Text>();
-        label.text = string.Format("Acceleration x:{0:F1}  y:{1:F1}  z:{2:F1}", 0, 0, 0);
+        label.text = string.Format("Acceleration x:{0:F1}  y:{1:F1}  z:{2:F1}\nAverage:{3:F1}", 0, 0, 0, 0);
     }
 
     /// <summary>
@@ -44,8 +44,9 @@ public class StepsCounterLabel : MonoBehaviour
         float x = accelerateManager.AccelerateValueX;
         float y = accelerateManager.AccelerateValueY;
         float z = accelerateManager.AccelerateValueZ;
+        float average = accelerateManager.CalculateAccelerateValuesAvarage();
 
         var label = this.GetComponent<Text>();
-        label.text = string.Format("Acceleration x:{0:F1}  y:{1:F1}  z:{2:F1}", x, y, z);
+        label.text = string.Format("Acceleration x:{0:F1}  y:{1:F1}  z:{2:F1}\nAverage:{3:F1}", x, y, z, average);
     }
 }

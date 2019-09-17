@@ -34,8 +34,25 @@ public class AccelerateManager : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        RefreshAccelerateValue();
+    }
+
+    /// <summary>
+    /// 加速度の値を更新
+    /// </summary>
+    private void RefreshAccelerateValue()
+    {
         accelerateValueX = Input.acceleration.x;
         accelerateValueY = Input.acceleration.y;
         accelerateValueZ = Input.acceleration.z;
+    }
+
+    /// <summary>
+    /// 端末加速度の平均を計算
+    /// </summary>
+    /// <returns></returns>
+    public float CalculateAccelerateValuesAvarage()
+    {
+        return Mathf.Sqrt((accelerateValueX * accelerateValueX) + (accelerateValueY * accelerateValueY) + (accelerateValueZ * accelerateValueZ));
     }
 }
