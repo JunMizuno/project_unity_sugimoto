@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using System.Runtime.InteropServices;
+
 public class StepsCounterLabel : MonoBehaviour
 {
     [SerializeField]
@@ -14,6 +16,21 @@ public class StepsCounterLabel : MonoBehaviour
     private void Start()
     {
         InitializeStepsCounterLabel();
+
+
+
+
+
+
+
+
+
+
+
+
+        var test = new AndroidJavaClass("com.plugins.jun_mizuno.testandroidlibrary.TestString");
+        var result = test.CallStatic<string>("getString");
+        Debug.Log("？:" + result);
     }
 
     /// <summary>

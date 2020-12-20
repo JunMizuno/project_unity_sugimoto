@@ -29,6 +29,16 @@ public class AccelerateManager : MonoBehaviour
         }
     }
 
+	private readonly float accelerateLocalMaximumValue = 1.1f;
+	private int overLocalMaxValueCount = default;
+    public int OverLocalMaxValueCount
+	{
+        get
+		{
+			return overLocalMaxValueCount;
+		}
+	}
+
     /// <summary>
     /// 更新
     /// </summary>
@@ -45,6 +55,11 @@ public class AccelerateManager : MonoBehaviour
         accelerateValueX = Input.acceleration.x;
         accelerateValueY = Input.acceleration.y;
         accelerateValueZ = Input.acceleration.z;
+
+        if (CalculateAccelerateValuesAvarage() >= accelerateLocalMaximumValue)
+		{
+			overLocalMaxValueCount++;
+		}
     }
 
     /// <summary>
